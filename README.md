@@ -1,6 +1,8 @@
 # Is-PTS1
 A tool for detecting the PTS1 signal in a fasta sequence and validate the putative peroxisomal location
 
+The pts_search.py algorithm simply checks if a putative PTS1 signal is present in the C-terminal.
+
 To use the PTS_validate.py script, you first need to download and install:
 
 #### 1) seqvec 
