@@ -27,7 +27,7 @@ Then download the weights with
 `aws s3 sync --no-sign-request --quiet s3://unirep-public/1900_weights/ 1900_weights`
 
 
-#### 3) A pre-computed model 'LR_model2.sav'/'SVM_model.sav' is also required (uncomment the selected model in the script). 
+#### 3) A pre-computed model 'test_pts_pred_LR_all_features_model.sav' is also required (uncomment the selected model in the script). 
 
 #### 4) Additional requirements
 
