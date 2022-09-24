@@ -29,10 +29,10 @@ os.makedirs(fastafile[:-6] + "/DATA/", exist_ok=True)
 
 from unirep import babbler1900 as babbler
 
-# Where model weights are stored.
+# Where model weights are stored. 
 # Here we consider the directory where the script is executed. Insert the proper path below if needed.
 MODEL_WEIGHT_PATH = "."
-b = babbler('/data/p290092/PTS_validate/1900_weights')
+b = babbler('DATA/1900_weights')
 
 print('UniRep Encoding:')
 with open(fastafile, "r") as handle:
@@ -84,7 +84,7 @@ filename='test_pts_pred_LR_all_features_model.sav'
 #filename='SVM_model.sav'
 
 
-LR_model = pickle.load(open("/data/p290092/PTS_validate/" + filename, 'rb'))
+LR_model = pickle.load(open(filename, 'rb'))
 
 unireps = {}
 for filenames in os.listdir(fastafile[:-6] + '/DATA'):
