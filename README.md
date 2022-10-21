@@ -44,3 +44,5 @@ Suggested packages:
 - `scipy 1.4.1`
 - `overrides 3.1.0`
 
+
+The training set is stored in the positive_fasta.gz and negative_fasta.gz files
