@@ -3,7 +3,7 @@ A tool for detecting the PTS1 signal in a fasta sequence and validate the putati
 
 The pts_search.py algorithm simply checks if a putative PTS1 signal is present in the C-terminal.
 
-To use the PTS_validate.py script, you first need to download and install:
+To use the PTS_validate.py and PTS_searchnvalidate.py scripts, you first need to download and install:
 
 #### 1) seqvec 
 Instructions are available here: https://github.com/Rostlab/SeqVec.
@@ -51,5 +51,6 @@ Suggested packages:
 - test_pts_pred_LR_all_features_model.sav : The LR pre-computed model
 - positive_fasta.gz and negative_fasta.gz : The training dataset
 - pts1_pos_val.fasta and pts1_neg_val.fasta : The validation fasta files
+- PTS_searchnvalidate.py, pts_search.py and PTS_validate.py : algorithms to search (pts_search.py) and validate (PTS_validate.py) putative PTS1 signals and a combination of both (PTS_searchnvalidate.py)
   
 The code in this repository is licensed under the terms of GPL v3 as specified by the LICENSE file.
