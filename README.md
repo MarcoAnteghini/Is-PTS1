@@ -45,4 +45,11 @@ Suggested packages:
 - `overrides 3.1.0`
 
 
-The training set is stored in the positive_fasta.gz and negative_fasta.gz files
+### This repository contains:
+
+- Is-PTS1_model.sav : The SVM pre-computed model 
+- test_pts_model.sav : The LR pre-computed model
+- positive_fasta.gz and negative_fasta.gz : The training dataset
+- : The validation fasta files
+  
+The code in this repository is licensed under the terms of GPL v3 as specified by the LICENSE file.
