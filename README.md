@@ -48,7 +48,7 @@ Suggested packages:
 ### This repository contains:
 
 - Is-PTS1_model.sav : The SVM pre-computed model 
-- test_pts_model.sav : The LR pre-computed model
+- test_pts_pred_LR_all_features_model.sav : The LR pre-computed model
 - positive_fasta.gz and negative_fasta.gz : The training dataset
 - : The validation fasta files
   
