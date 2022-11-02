@@ -50,6 +50,6 @@ Suggested packages:
 - Is-PTS1_model.sav : The SVM pre-computed model 
 - test_pts_pred_LR_all_features_model.sav : The LR pre-computed model
 - positive_fasta.gz and negative_fasta.gz : The training dataset
-- : The validation fasta files
+- pts1_pos_val.fasta and pts1_neg_val.fasta : The validation fasta files
   
 The code in this repository is licensed under the terms of GPL v3 as specified by the LICENSE file.
