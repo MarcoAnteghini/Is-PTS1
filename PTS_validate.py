@@ -80,11 +80,11 @@ p1 = Popen(["seqvec", "-i", fastafile, "-o", fastafile[:-6]+str('_seqvec.npz'),"
 p1.communicate()
 
 #comment/uncomment the model you want to use
-filename='test_pts_pred_LR_all_features_model.sav'
+filename='Is-PTS1_model.sav'
 #filename='SVM_model.sav'
 
 
-LR_model = pickle.load(open(filename, 'rb'))
+model = pickle.load(open(filename, 'rb'))
 
 unireps = {}
 for filenames in os.listdir(fastafile[:-6] + '/DATA'):
@@ -105,7 +105,7 @@ for keys in seqvecs.keys():
 true_pero, false_pero = [],[]
 for uniprotid in final_d:
 
-    pred = LR_model.predict(final_d[uniprotid].reshape(1, -1))[0]
+    pred = model.predict(final_d[uniprotid].reshape(1, -1))[0]
     if pred==1:
         true_pero.append(uniprotid)
     else:
