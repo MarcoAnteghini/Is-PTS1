@@ -24,7 +24,7 @@ def argsCheck(numArgs):
 
 start_time=time()
 
-# House keeping...
+
 argsCheck(2) # Checks if the number of arguments are correct.
 
 # Stores file one for input checking.
@@ -37,10 +37,6 @@ def is_fasta(filename):
 
 
 
-#Known PTS signal
-#[SACHEQ]-[KRH]-[LAF] yeast
-#[ASCNPHTG]-[RKHQNSL]-[LMIVF] euK
-
 species='other'
 fasta_sequences = SeqIO.parse(open(fastafile),'fasta')
 leng=40
@@ -51,30 +47,21 @@ for fasta in fasta_sequences:
     if '|' in name:
         name=name.split('|')[1]
     if species=='other':
-        #print(sequence+'\n')
-        #print(sequence[-int(cterm_len):])
-        match = re.search(r'[ASCNPHTG][RKHQNSL][LMIVF]$', sequence[-int(leng):])
-    if species=='yeast':
-        match = re.search(r'[SACHEQ][KRH][LAF]$', sequence[-int(leng):])
+        match = re.search(r'[ASCNPHTGEQ][RKHQNSL][LMIVFA]$', sequence[-int(leng):])
     if match:
         ms[name]=match.group()
     if not match:
         non_PTS.append(name)
-#print(ms)
+
 with open(fastafile, "r") as handle:
     if is_fasta(fastafile):
         fasta = SeqIO.parse(handle, "fasta")
         d={}
         for record in fasta:
-            #print('GUARDA QUIIIIIIIIIIIIIIIIIIII')
-            #print(record.id.split('|')[1])
             if record.id.split('|')[1] in ms.keys():
-             #   print('AAAAAAAAAAAAAAAAAAAAAAAASFOJEAPOFJOJFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
-             #   print(k,record.id.splip('|')[1])
                 try:
                     sequence=record.seq
                     ids=record.id
-             #       print(ids+'\n'+sequence)
                     d[ids.split('|')[1]] = sequence
                 except:
                     print('Something wrong','\n','fasta file should start with >sp|ID|ORGANISM')
@@ -83,26 +70,7 @@ with open(fastafile, "r") as handle:
 print(d)
 #d should contain only the matching fasta files
 
-#with open(fastafile) as fasta, open(fastafile[:-6]+'_matches.txt','w') as result:
-#    c=0
-#    if species=='other':
-#        for line in fasta:
-#            if line[0] == '>':
-#                idx=line.rstrip()[1:]   
-#            else:
-#                match = re.search(r'[ASCNPHTG][RKHQNSL][LMIVF]$', line[-int(cterm_len):])
-#                if match:
-#                    result.write(idx+' '+match[-int(cterm_len):])
-#                    c+=1
-#    if species=='yeast':
-#        for line in fasta:
-#            if line[0] == '>':
-#                idx=line.rstrip()[1:]   
-#            else:
-#                match = re.search(r'[SACHEQ][KRH][LAF]$', line[-int(cterm_len):])
-#                if match:
-#                    result.write(idx+' '+match[-int(cterm_len):])
-#                    c+=1    
+
 with open(fastafile[:-6]+'_matches.txt','w') as out:
     for k,v in ms.items():
         print(k,v)
