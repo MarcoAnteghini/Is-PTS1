@@ -108,10 +108,6 @@ if check_fasta(fastafile)==False:
 
 
 
-#Known PTS signal
-#[SACHEQ]-[KRH]-[LAF] yeast
-#[ASCNPHTG]-[RKHQNSL]-[LMIVF] euK
-
 species='other'
 fasta_sequences = SeqIO.parse(open(fastafile),'fasta')
 leng=40
@@ -125,8 +121,6 @@ for fasta in fasta_sequences:
         #print(sequence+'\n')
         #print(sequence[-int(cterm_len):])
         match = re.search(r'[ASCNPHTGEQ][RKHQNSL][LAMIVF]$', sequence[-int(leng):])
-    if species=='yeast':
-        match = re.search(r'[SACHEQ][KRH][LAF]$', sequence[-int(leng):])
     if match:
         ms[name]=match.group()
     if not match:
