@@ -50,7 +50,7 @@ with open(fastafile, "r") as handle:
                 pass
 
 for k in d.keys():
-    if len(d[k])>1000:
+    if len(d[k])>1200:
         print('\n'*10+k+' Seqeunce too long, please remove sequences longer then 1000')
         exit()
 
